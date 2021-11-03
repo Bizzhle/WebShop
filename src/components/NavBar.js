@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/Nav.module.scss";
+// import styles from "../styles/Nav.module.scss";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -14,41 +14,36 @@ export default function Header() {
   console.log(sidebar);
 
   return (
-    <div className={styles.navigation}>
-      <nav className={styles.nav}>
-        <div className={sidebar ? styles.nav_sidemenu : styles.nav_hidden}>
+    <div className="header">
+      <div className="container">
+        <div className={sidebar ? "sidemenu" : "hidden"}>
           <Accordion />
         </div>
 
-        <div className={styles.nav_hamburger} onClick={showSidebar}>
+        <div className="header_hamburger" onClick={showSidebar}>
           {sidebar ? (
-            <MdCancel style={{ height: 25, width: 35 }} />
+            <MdCancel style={{ height: 35, width: 35 }} />
           ) : (
-            <GiHamburgerMenu style={{ height: 25, width: 25 }} />
+            <GiHamburgerMenu style={{ height: 35, width: 35 }} />
           )}
         </div>
-        <div>
-          <Link to="/" className={styles.nav_navlink}>
-            Textil-Home
-          </Link>
+        <div className="header_logo">
+          <Link to="/">Textil-Home</Link>
         </div>
 
-        <div className={styles.nav_links}>
-          <div className={styles.nav_navlinks}>
-            {Mainmenu.map((item) => {
-              return (
-                <Link to="#" key={Math.random()} className={styles.nav_navlink}>
-                  {item.title}
-                </Link>
-              );
-            })}
-          </div>
-          <div className={styles.nav_cart}>
+        <nav className="header_nav">
+          {Mainmenu.map((item) => (
+            <div key={Math.random()} className="header_nav_links">
+              <Link to="#">{item.title}</Link>
+            </div>
+          ))}
+
+          <div className="header_nav_cart">
             <AiOutlineShoppingCart style={{ height: 35, width: 35 }} />
-            <button>33</button>
+            <div className="header_nav_cart_number">33</div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
   );
 }

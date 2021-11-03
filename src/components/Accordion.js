@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { GrAdd, GrFormSubtract } from "react-icons/gr";
 import { Mainmenu } from "../mainmenu";
-import styles from "../styles/Accordion.module.scss";
 
 export const Accordion = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -18,7 +17,7 @@ export const Accordion = () => {
       {Mainmenu.map((item) => {
         return (
           <div key={Math.random()}>
-            <div className={styles.accordion}>
+            <div className="accordion">
               <p>{item.title}</p>
               {item.lists.length > 0 || item.items.length > 0 ? (
                 <span>
@@ -42,7 +41,7 @@ export const Accordion = () => {
               <div>
                 {item.items.map((value) => (
                   <div key={Math.random()}>
-                    <div className={styles.product}>
+                    <div className="product">
                       {value.subCategories.length > 0 ? (
                         <span>
                           {isDeepOpen === value.id ? (
@@ -65,7 +64,7 @@ export const Accordion = () => {
                     </div>
 
                     {isDeepOpen === value.id ? (
-                      <ul className={styles.subproduct}>
+                      <ul className="subproduct">
                         {value.subCategories.map((v) => (
                           <li key={Math.random()}>{v.name}</li>
                         ))}
@@ -75,7 +74,7 @@ export const Accordion = () => {
                     )}
                   </div>
                 ))}
-                <div className={styles.panel}>
+                <div className="panel">
                   {item.lists.map((value) => (
                     <p
                       style={{

@@ -133,7 +133,7 @@ export const Mainmenu = [
       {
         name: "Showroom",
         pic: "./images/hotdog.jpeg",
-        color: "black",
+        color: "white",
       },
     ],
   },

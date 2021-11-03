@@ -1,0 +1,160 @@
+
+$border: 1px solid red;
+
+.header {
+    // border: $border;
+    // position: relative;
+    position: fixed;
+    width: 100%;
+    height: $nav-height;
+    z-index: 99;
+    transition: 0.5s ease-out;
+    top: 0;
+    left: 0;
+
+
+    @include tablet {
+        height: $nav-tablet-height;
+    }
+
+    @include mobile {
+        height: $nav-mobile-height;
+    }
+
+
+
+    .container {
+        @include flex(center, space-between);
+        color: #000;
+        height: 100%; 
+    }
+
+    &.shrink {
+        height: $nav-shrink-height;
+        z-index: 100;
+
+        @include mobile {
+            height: $nav-mobile-height;
+        }
+    }
+
+    &_hamburger {
+        display: none;
+        height: 100%;
+
+        @include tablet {
+            display: block;
+            @include flex(center, space-between);
+            
+
+        }
+
+        @include mobile {
+            width: 30px;
+        }
+    }
+
+    &_logo {
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 600;
+        
+
+        @include mobile {
+            font-size: 1.5rem;
+        }
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+    &_nav {
+        @include flex(center, space-between);
+        margin-left: 20px;
+        height: 100%;
+       
+
+        &_links {
+            @include flex(center, space-between);
+        	font-size: 2rem;
+            display: inherit;
+            margin-right: 20px;
+            height: 100%;
+
+            
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &_cart {
+            @include flex(center, space-between);
+            height: 100%;
+
+            @include mobile {
+                width: 45px;
+            }
+    
+    
+            &_number {
+                margin-left: -10px;
+                margin-top: 10px;
+                border-radius: 50%;
+                color: #fff;
+                background-color: red;
+                border: none;
+                padding: 3px;
+                text-align: center;
+                display: inline-block;
+    
+            }
+        }
+            
+    }
+
+    // &_hidden {
+    //     display: none;
+    // }
+
+
+    // &_navlink {
+    //     text-decoration: none;
+    //     padding: 5px;
+    //     margin: 5px;
+    //     color: #000;
+
+    // }
+
+    
+
+    .hidden { 
+            display: none; 
+    }
+
+    .sidemenu {
+        display: block;
+        position: fixed;
+        background-color: $main-bg;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+        height: 100%;
+        overflow: auto;
+        transition: 1.5s ease-out;
+      
+
+
+        @include tablet {
+            top: $nav-tablet-height;
+
+        }
+
+        @include mobile {
+            top: $nav-mobile-height;
+
+        }
+
+    }
+
+}

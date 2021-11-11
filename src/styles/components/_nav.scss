@@ -2,7 +2,6 @@
 $border: 1px solid red;
 
 .header {
-    // border: $border;
     // position: relative;
     position: fixed;
     width: 100%;
@@ -11,9 +10,14 @@ $border: 1px solid red;
     transition: 0.5s ease-out;
     top: 0;
     left: 0;
+    background-color: $main-bg;
 
 
     @include tablet {
+        height: $nav-tablet-height;
+    }
+
+    @include tab {
         height: $nav-tablet-height;
     }
 
@@ -29,14 +33,14 @@ $border: 1px solid red;
         height: 100%; 
     }
 
-    &.shrink {
-        height: $nav-shrink-height;
-        z-index: 100;
+    // &.shrink {
+    //     height: $nav-shrink-height;
+    //     z-index: 100;
 
-        @include mobile {
-            height: $nav-mobile-height;
-        }
-    }
+    //     @include mobile {
+    //         height: $nav-mobile-height;
+    //     }
+    // }
 
     &_hamburger {
         display: none;
@@ -49,8 +53,17 @@ $border: 1px solid red;
 
         }
 
+        @include tab {
+            display: block;
+            @include flex(center, space-between);
+            
+
+        }
+
         @include mobile {
             width: 30px;
+            display: block;
+            @include flex(center, space-between);
         }
     }
 
@@ -62,10 +75,17 @@ $border: 1px solid red;
 
         @include mobile {
             font-size: 1.5rem;
+            font-weight: 700,
+        }
+
+        @include tab {
+            font-size: 2.5rem;
+            font-weight: 700,
         }
 
         @include tablet {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700,
         }
     }
 
@@ -86,14 +106,23 @@ $border: 1px solid red;
             @include tablet {
                 display: none;
             }
+
+            @include tab {
+                display: none;
+            }
+
+            @include mobile {
+                display: none;
+            }
         }
 
         &_cart {
-            @include flex(center, space-between);
+            @include flex(center, center);
             height: 100%;
 
             @include mobile {
                 width: 45px;
+               
             }
     
     
@@ -104,28 +133,20 @@ $border: 1px solid red;
                 color: #fff;
                 background-color: red;
                 border: none;
-                padding: 3px;
-                text-align: center;
-                display: inline-block;
+                width: 25px;
+                height: 25px;
+                padding: 5px;
+                @include flex(center, center);
+
+                // text-align: center;
+                // display: inline-block;
     
             }
         }
             
     }
 
-    // &_hidden {
-    //     display: none;
-    // }
-
-
-    // &_navlink {
-    //     text-decoration: none;
-    //     padding: 5px;
-    //     margin: 5px;
-    //     color: #000;
-
-    // }
-
+ 
     
 
     .hidden { 
@@ -142,10 +163,16 @@ $border: 1px solid red;
         height: 100%;
         overflow: auto;
         transition: 1.5s ease-out;
+       
       
 
 
         @include tablet {
+            top: $nav-tablet-height;
+
+        }
+
+        @include tab {
             top: $nav-tablet-height;
 
         }

@@ -5,6 +5,8 @@
     
 }
 
+
+
 @mixin mobile {
     @media screen and (max-width: $mobile-width) {
         @content;
@@ -12,8 +14,15 @@
     }
 }
 
+@mixin tab {
+    @media (min-width: 415px) and (max-width: $tab-width) {
+        @content;
+        
+    }
+}
+
 @mixin tablet {
-    @media screen and (max-width: $tablet-width) {
+    @media (min-width: 769px) and (max-width: $tablet-width) {
         @content;
         
     }

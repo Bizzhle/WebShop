@@ -1,6 +1,10 @@
 
 $border: 1px solid red;
 
+.accordion-container {
+    height: 100vh;
+    margin-bottom: 150px;
+}
 
 .accordion {
     @include flex(center, space-between);
@@ -20,7 +24,7 @@ $border: 1px solid red;
 .panel {
     display: -ms-grid;
     display: grid;
-    text-align: left;
+    // text-align: left;
     transition: 1.5s ease-out;
     // border: $border;
     

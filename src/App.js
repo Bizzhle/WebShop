@@ -1,28 +1,24 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import SingleProduct from "./components/SingleProduct";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <NavBar />
-    </BrowserRouter>
-    // <div className="App">
-
-    //   <header className="App-header">
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/product" component={Products} />
+      <Route exact path="/posts/:id" component={SingleProduct} />
+      <Route exact path="/cart" component={Cart} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+    </Router>
   );
 }
 

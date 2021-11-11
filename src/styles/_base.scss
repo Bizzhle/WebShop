@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$urbanist: 'Urbanist', sans-serif;
 
 * {
     padding: 0;
@@ -10,6 +13,11 @@
 
 html {
     font-size: 13px;
+}
+
+body {
+    font-family: $urbanist;
+
 }
 
 ul {
@@ -56,12 +64,19 @@ img {
     @include mobile {
         margin-top: calc(#{$nav-mobile-height} + 10px);
     }
-
 }
 
 
 
+.bottom {
+    height: 50px;
+}
 
-// .grid {
-//     display: grid;
-// }
+.home {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex-grow: 1;
+}

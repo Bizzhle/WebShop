@@ -6,18 +6,20 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdCancel } from "react-icons/md";
 import { Mainmenu } from "../mainmenu";
 import { Accordion } from "./Accordion";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const [sidebar, setSidebar] = useState(false);
+  const quantity = useSelector((state) => state.cart.quantity);
 
   const showSidebar = () => setSidebar(!sidebar);
-  console.log(sidebar);
+  // console.log(showSidebar);
 
   return (
     <div className="header">
       <div className="container">
         <div className={sidebar ? "sidemenu" : "hidden"}>
-          <Accordion />
+          <Accordion sidebar={sidebar} showSidebar={showSidebar} />
         </div>
 
         <div className="header_hamburger" onClick={showSidebar}>
@@ -34,14 +36,17 @@ export default function Header() {
         <nav className="header_nav">
           {Mainmenu.map((item) => (
             <div key={Math.random()} className="header_nav_links">
-              <Link to="#">{item.title}</Link>
+              <Link to={item.path}>{item.title}</Link>
             </div>
           ))}
-
-          <div className="header_nav_cart">
-            <AiOutlineShoppingCart style={{ height: 35, width: 35 }} />
-            <div className="header_nav_cart_number">33</div>
-          </div>
+          <Link to="/cart">
+            <div className="header_nav_cart">
+              <AiOutlineShoppingCart style={{ height: 40, width: 40 }} />
+              <div className="header_nav_cart_number">
+                {quantity >= 1 ? quantity : 0}
+              </div>
+            </div>
+          </Link>
         </nav>
       </div>
     </div>

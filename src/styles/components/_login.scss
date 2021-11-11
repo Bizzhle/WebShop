@@ -1,0 +1,89 @@
+
+.login {
+    padding-top: $nav-height;
+  
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+        center;
+    background-size: cover;
+    @include flex(center, center);
+
+    @include mobile {
+    padding-top: $nav-mobile-height;
+    }
+
+    @include tab {
+        padding-top: $nav-tablet-height;
+    }
+
+    @include tablet {
+        padding-top: $nav-tablet-height; 
+    }
+
+
+
+    &_wrapper {
+    // border: $border;
+        width: 35%;
+        padding: 20px;
+        background-color: white;
+
+        @include mobile {
+            width: 75%;
+        }
+
+        h1 {
+            font-weight: 300;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            flex: 1;
+            min-width: 40%;
+            margin: 10px 0;
+            padding: 10px 5px;
+            font-size: 1.25rem;
+        }
+
+        .agreement {
+            font-size: 12px;
+            margin: 10px 0px;
+        }
+
+        .button {
+            width: 100%;
+            border: none;
+            padding: 15px 20px;
+            background-color: teal;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+            &:disabled {
+                color: rgb(105, 49, 11);
+                cursor: not-allowed;
+            }
+        }
+
+        .error {
+            color: red;
+        }
+
+        a {
+            margin: 5px 0px;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+
+    }
+}

@@ -2,23 +2,26 @@ import React, { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { GrAdd, GrFormSubtract } from "react-icons/gr";
 import { Mainmenu } from "../mainmenu";
+import { Link } from "react-router-dom";
 
-export const Accordion = () => {
+export const Accordion = ({ sidebar, showSidebar }) => {
   const [isOpen, setIsOpen] = useState(null);
   const [isDeepOpen, setIsDeepOpen] = useState(null);
+  console.log(sidebar);
 
   const ShowAccordion = (id) => setIsOpen((prev) => (prev === id ? null : id));
   const ShowDeepAccordion = (id) =>
     setIsDeepOpen((prev) => (prev === id ? null : id));
-  console.log(isDeepOpen);
 
   return (
-    <div>
+    <div className="accordion-container">
       {Mainmenu.map((item) => {
         return (
           <div key={Math.random()}>
             <div className="accordion">
-              <p>{item.title}</p>
+              <Link to={item.path} onClick={showSidebar}>
+                <p>{item.title}</p>
+              </Link>
               {item.lists.length > 0 || item.items.length > 0 ? (
                 <span>
                   {isOpen === item.id ? (
